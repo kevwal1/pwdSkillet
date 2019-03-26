@@ -1,0 +1,33 @@
+# unique snippet name
+name: pwdSkillet
+# label used for menu selection
+label: Change NGFW Password
+description: Change the Admin password on the NGFW.
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panos
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - kevwal_tests
+
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: ADMINISTRATOR_PASSWORD
+    description: admin password
+    default: admin
+    type_hint: text 
+  
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+snippets:
+  - name: device_mgmt_config
+    xpath: /config/mgt-config
+    file: pwd.xml
