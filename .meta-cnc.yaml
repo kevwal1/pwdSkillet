@@ -29,5 +29,5 @@ variables:
 # files will load in the order listed
 snippets:
   - name: device_mgmt_config
-    xpath: /config/mgt-config
+    xpath: mgt-config
     file: pwd.xml
